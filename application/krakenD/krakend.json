@@ -11,7 +11,7 @@
       "backend": [
         {
           "url_pattern": "/api/auth/login",
-          "host": ["http://auth.default:8900"],
+          "host": ["http://auth.auth:8900"],
           "encoding": "string"
         }
       ]
@@ -24,10 +24,10 @@
       "backend": [
         {
           "url_pattern": "/api/auth/register",
-          "host": ["http://auth.default:8900"],
+          "host": ["http://auth.auth:8900"],
           "encoding": "string"
         }
       ]
-    },
+    }
   ]
 }
