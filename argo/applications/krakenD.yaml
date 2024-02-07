@@ -10,7 +10,7 @@ spec:
     name     : in-cluster
     namespace: krakend
   source:
-    path   : "application/krakenD/yml"
+    path   : "application/krakenD/yaml"
     repoURL: "git@github.com:02ten/marketplace-k8s-config.git"
     targetRevision: HEAD
   project: default
