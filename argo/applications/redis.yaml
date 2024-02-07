@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     name     : in-cluster
-    namespace: krakend
+    namespace: redis
   source:
     path   : "application/redis"
     repoURL: "git@github.com:02ten/marketplace-k8s-config.git"
