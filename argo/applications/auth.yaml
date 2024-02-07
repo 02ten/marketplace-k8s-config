@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     name     : in-cluster
-    namespace: auth-service
+    namespace: auth
   source:
     path   : "application/auth"
     repoURL: "git@github.com:02ten/marketplace-k8s-config.git"
