@@ -14,11 +14,6 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:16
+          image: 02ten/marketplace-postgres:latest
           ports:
             - containerPort: 5432
-          env:
-            - name: POSTGRES_USER
-              value: postgres
-            - name: POSTGRES_PASSWORD
-              value: postgres
