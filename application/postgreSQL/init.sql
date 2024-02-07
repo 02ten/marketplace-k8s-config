@@ -1,5 +1,5 @@
-CREATE DATABASE VKR;
-\c VKR;
+CREATE DATABASE marketplace;
+\c marketplace;
 create table role
 (
     id   bigserial
