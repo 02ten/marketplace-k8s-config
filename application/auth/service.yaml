@@ -4,7 +4,6 @@ metadata:
   labels:
     app: auth
   name: auth
-  namespace: default
 spec:
   ports:
     - port: 8900
