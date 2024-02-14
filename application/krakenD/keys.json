@@ -2,7 +2,7 @@
   "keys": [
     {
       "kty": "oct",
-      "k": "qBTmv4oXFFR2GwjexDJ4t6fsIUIUhhXqlktXjXdkcyygs8nPVEwMfo29VDRRepYDVV5IkIxBMzr7OEHXEHd37w==",
+      "k": "and0X3JlZnJlc2hfc2VjcmV0",
       "kid": "sim2",
       "alg": "HS512"
     }
