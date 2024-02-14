@@ -1,7 +1,5 @@
 {
   "version": 3,
-  "extra_config": {
-  },
   "endpoints": [
     {
       "endpoint": "/api/auth/login",
@@ -24,6 +22,42 @@
       "backend": [
         {
           "url_pattern": "/api/auth/register",
+          "host": ["http://auth.auth:8900"],
+          "encoding": "string"
+        }
+      ]
+    },
+    {
+      "endpoint": "/hello/user",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS512",
+          "jwk_local_path": "/etc/krakend/keys.json",
+          "disable_jwk_security": true,
+          "roles": ["user"]
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "/api/hello/user",
+          "host": ["http://auth.auth:8900"],
+          "encoding": "string"
+        }
+      ]
+    },
+    {
+      "endpoint": "/hello/admin",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS512",
+          "jwk_local_path": "/etc/krakend/keys.json",
+          "disable_jwk_security": true,
+          "roles": ["admin"]
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "/api/hello/admin",
           "host": ["http://auth.auth:8900"],
           "encoding": "string"
         }
