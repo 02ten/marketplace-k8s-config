@@ -66,6 +66,8 @@
     },
     {
       "endpoint": "/hello/admin",
+      "method": "GET",
+      "output_encoding": "json",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
@@ -80,7 +82,7 @@
         {
           "url_pattern": "/api/hello/admin",
           "host": ["http://auth.auth:8900"],
-          "encoding": "string"
+          "encoding": "json"
         }
       ]
     }
