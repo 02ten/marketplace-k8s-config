@@ -1,5 +1,12 @@
 {
   "version": 3,
+  "extra_config": {
+    "telemetry/logging": {
+      "level": "INFO",
+      "prefix": "[KRAKEND]",
+      "syslog": false,
+      "stdout": true
+    },
   "endpoints": [
     {
       "endpoint": "/api/auth/login",
@@ -28,9 +35,10 @@
       ]
     },
     {
-      "endpoint": "/hello/user",
+      "endpoint": "/api/hello/user",
       "method": "GET",
       "output_encoding": "string",
+      "concurrent_calls": 1,
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
