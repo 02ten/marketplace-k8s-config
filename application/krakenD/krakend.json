@@ -15,33 +15,33 @@
     {
       "endpoint": "/api/auth/login",
       "method": "POST",
-      "output_encoding": "string",
+      "output_encoding": "json",
       "concurrent_calls": 1,
       "backend": [
         {
           "url_pattern": "/api/auth/login",
           "host": ["http://auth.auth:8900"],
-          "encoding": "string"
+          "encoding": "json"
         }
       ]
     },
     {
       "endpoint": "/api/auth/register",
       "method": "POST",
-      "output_encoding": "string",
+      "output_encoding": "json",
       "concurrent_calls": 1,
       "backend": [
         {
           "url_pattern": "/api/auth/register",
           "host": ["http://auth.auth:8900"],
-          "encoding": "string"
+          "encoding": "json"
         }
       ]
     },
     {
       "endpoint": "/api/hello/user",
       "method": "GET",
-      "output_encoding": "string",
+      "output_encoding": "json",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
@@ -54,12 +54,13 @@
         }
       },
       "concurrent_calls": 1,
+      "input_headers": ["*"],
       "backend": [
         {
           "url_pattern": "/api/hello/user",
           "method": "GET",
           "host": ["http://auth.auth:8900"],
-          "encoding": "string"
+          "encoding": "json"
         }
       ]
     },
