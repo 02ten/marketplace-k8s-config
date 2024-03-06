@@ -6,7 +6,8 @@
       "prefix": "[KRAKEND]",
       "syslog": false,
       "stdout": true
-    },
+    }
+  },
   "endpoints": [
     {
       "endpoint": "/api/auth/login",
