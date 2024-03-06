@@ -6,6 +6,9 @@
       "prefix": "[KRAKEND]",
       "syslog": false,
       "stdout": true
+    },
+    "router": {
+      "return_error_msg": true
     }
   },
   "endpoints": [
@@ -39,18 +42,22 @@
       "endpoint": "/api/hello/user",
       "method": "GET",
       "output_encoding": "string",
-      "concurrent_calls": 1,
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
           "jwk_local_path": "/etc/krakend/keys.json",
+          "roles": ["USER"],
+          "roles_key": "roles",
+          "cache": false,
           "disable_jwk_security": true,
-          "roles": ["USER"]
+          "operation_debug": true
         }
       },
+      "concurrent_calls": 1,
       "backend": [
         {
           "url_pattern": "/api/hello/user",
+          "method": "GET",
           "host": ["http://auth.auth:8900"],
           "encoding": "string"
         }
@@ -63,7 +70,9 @@
           "alg": "HS512",
           "jwk_local_path": "/etc/krakend/keys.json",
           "disable_jwk_security": true,
-          "roles": ["ADMIN"]
+          "roles": ["ADMIN"],
+          "roles_key": "roles",
+          "operation_debug": true
         }
       },
       "backend": [
