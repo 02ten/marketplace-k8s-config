@@ -78,6 +78,8 @@
           "operation_debug": true
         }
       },
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
       "backend": [
         {
           "url_pattern": "/api/hello/admin",
