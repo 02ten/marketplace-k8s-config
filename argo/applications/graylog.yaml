@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name     : grafana
+  name     : graylog
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     name     : in-cluster
-    namespace: grafana
+    namespace: graylog
   source:
     path   : "application/graylog"
     repoURL: "git@github.com:02ten/marketplace-k8s-config.git"
