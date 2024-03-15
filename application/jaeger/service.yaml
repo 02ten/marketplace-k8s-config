@@ -20,3 +20,4 @@ spec:
     - name: grpc-collector
       port: 14267
       targetPort: 14267
+  type: LoadBalancer
