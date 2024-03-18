@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: personal-account
+  name: personal-account
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: personal-account
+  template:
+    metadata:
+      labels:
+        app: personal-account
+    spec:
+      containers:
+        - image: 02ten/marketplace-personal-account:2ab7558535cfcd919972354a6ae1a9eebd453135
+          imagePullPolicy: Always
+          name: personal-account
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "500M"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always

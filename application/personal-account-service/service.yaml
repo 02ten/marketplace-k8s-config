@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: personal-account
+  name: personal-account
+spec:
+  ports:
+    - port: 8902
+      protocol: TCP
+      targetPort: 8902
+  selector:
+    app: personal-account
+  sessionAffinity: None
+  type: ClusterIP
