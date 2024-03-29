@@ -107,6 +107,7 @@
       "backend": [
         {
           "url_pattern": "/api/personal/account/{JWT.id}",
+          "method": "GET",
           "host": ["http://personal-account.personal-account:8902"],
           "encoding": "json"
         }
