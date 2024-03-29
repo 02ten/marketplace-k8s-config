@@ -106,7 +106,7 @@
       "input_headers": ["*"],
       "backend": [
         {
-          "url_pattern": "/api/personal/account/{JWT.id}",
+          "url_pattern": "/api/personal/account/1",
           "method": "GET",
           "host": ["http://personal-account.personal-account:8902"],
           "encoding": "json"
