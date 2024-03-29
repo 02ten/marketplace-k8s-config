@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name     : personal-account
+  name     : personal
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     name     : in-cluster
-    namespace: personal-account
+    namespace: personal
   source:
     path   : "application/personal-account-service"
     repoURL: "git@github.com:02ten/marketplace-k8s-config.git"

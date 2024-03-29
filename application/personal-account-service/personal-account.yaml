@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: personal-account
-  name: personal-account
+    app: personal
+  name: personal
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: personal-account
+      app: personal
   template:
     metadata:
       labels:
-        app: personal-account
+        app: personal
     spec:
       containers:
         - image: 02ten/marketplace-personal-account:643aba2c1cf996c6843eb2205be606b98c52938d
           imagePullPolicy: Always
-          name: personal-account
+          name: personal
           resources:
             limits:
               cpu: "0.5"
