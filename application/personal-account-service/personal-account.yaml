@@ -15,7 +15,7 @@ spec:
         app: personal-account
     spec:
       containers:
-        - image: 02ten/marketplace-personal-account:2c3b8f781d9eaae3697209283648ab2620a8289d
+        - image: 02ten/marketplace-personal-account:643aba2c1cf996c6843eb2205be606b98c52938d
           imagePullPolicy: Always
           name: personal-account
           resources:
