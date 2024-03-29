@@ -6,7 +6,7 @@ create table role
         primary key,
     vale varchar(255)
 );
-INSERT INTO role (id, vale) VALUES (1, 'USER'), (2, 'ADMIN');
+INSERT INTO role (id, vale) VALUES (1, 'USER'), (2, 'ADMIN'), (3, 'SELLER');
 create table t_user
 (
     id         bigserial
