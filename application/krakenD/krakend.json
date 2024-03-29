@@ -99,6 +99,7 @@
           "disable_jwk_security": true,
           "roles": ["USER","ADMIN"],
           "roles_key": "roles",
+          "cache": false,
           "operation_debug": true
         }
       },
@@ -106,7 +107,7 @@
       "input_headers": ["*"],
       "backend": [
         {
-          "url_pattern": "/api/personal/account/1",
+          "url_pattern": "/api/personal/account/{JWT.id}",
           "method": "GET",
           "host": ["http://personal.personal:8902"],
           "encoding": "json"
