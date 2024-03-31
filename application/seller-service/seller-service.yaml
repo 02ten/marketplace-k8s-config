@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: seller-service
+  name: auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seller-service
+  template:
+    metadata:
+      labels:
+        app: seller-service
+    spec:
+      containers:
+        - image: 02ten/marketplace-seller-service:3548b00774008df2bf8be7647ec9d6f31290b557
+          imagePullPolicy: Always
+          name: auth
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "500M"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always

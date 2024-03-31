@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: seller-service
+  name: seller-service
+spec:
+  ports:
+    - port: 8903
+      protocol: TCP
+      targetPort: 8903
+  selector:
+    app: seller-service
+  sessionAffinity: None
+  type: ClusterIP
