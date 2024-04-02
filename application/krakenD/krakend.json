@@ -187,6 +187,7 @@
         {
           "url_pattern": "/api/product/{JWT.id}",
           "method": "GET",
+          "is_collection": true,
           "host": ["http://seller-service.seller-service:8903"],
           "encoding": "json"
         }
