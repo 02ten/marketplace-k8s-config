@@ -15,7 +15,7 @@ spec:
         app: seller-service
     spec:
       containers:
-        - image: 02ten/marketplace-seller-service:c04b2f497beb120dc30e2a172801526e43198cb0
+        - image: 02ten/marketplace-seller-service:1cef416cb8fb89ce7eef32c6db1629777c1b568f
           imagePullPolicy: Always
           name: auth
           resources:
