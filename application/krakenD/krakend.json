@@ -15,38 +15,26 @@
     {
       "endpoint": "/api/auth/login",
       "method": "POST",
-      "output_encoding": "json",
+      "output_encoding": "no-op",
       "concurrent_calls": 1,
       "backend": [
         {
           "url_pattern": "/api/auth/login",
-          "host": ["http://auth.auth:8900"],
-          "encoding": "json",
-          "extra_config": {
-            "backend/http": {
-              "return_error_details": "true"
-            }
-          }
+          "host": ["http://auth.auth:8900"]
         }
       ]
     },
     {
       "endpoint": "/api/auth/register",
       "method": "POST",
-      "output_encoding": "string",
+      "output_encoding": "no-op",
       "concurrent_calls": 1,
       "input_headers": ["*"],
       "backend": [
         {
           "method": "POST",
           "url_pattern": "/api/auth/register",
-          "host": ["http://auth.auth:8900"],
-          "encoding": "string",
-          "extra_config": {
-            "backend/http": {
-              "return_error_details": "true"
-            }
-          }
+          "host": ["http://auth.auth:8900"]
         }
       ]
     },
@@ -155,7 +143,7 @@
     {
       "endpoint": "/my/product/{productId}",
       "method": "DELETE",
-      "output_encoding": "string",
+      "output_encoding": "no-op",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
@@ -173,13 +161,7 @@
         {
           "url_pattern": "/api/product/{JWT.id}/{productId}",
           "method": "DELETE",
-          "host": ["http://seller-service.seller-service:8903"],
-          "encoding": "string",
-          "extra_config": {
-            "backend/http": {
-              "return_error_details": "true"
-            }
-          }
+          "host": ["http://seller-service.seller-service:8903"]
         }
       ]
     },
