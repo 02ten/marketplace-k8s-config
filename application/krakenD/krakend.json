@@ -28,13 +28,13 @@
     {
       "endpoint": "/api/auth/register",
       "method": "POST",
-      "output_encoding": "json",
+      "output_encoding": "string",
       "concurrent_calls": 1,
       "backend": [
         {
           "url_pattern": "/api/auth/register",
           "host": ["http://auth.auth:8900"],
-          "encoding": "json"
+          "encoding": "string"
         }
       ]
     },
@@ -169,7 +169,7 @@
     {
       "endpoint": "/my/product",
       "method": "GET",
-      "output_encoding": "json-collection",
+      "output_encoding": "json",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
