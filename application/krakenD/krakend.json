@@ -169,7 +169,7 @@
     {
       "endpoint": "/my/product",
       "method": "GET",
-      "output_encoding": "json",
+      "output_encoding": "json-collection",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
@@ -195,7 +195,7 @@
     {
       "endpoint": "/my/product/{productId}",
       "method": "GET",
-      "output_encoding": "negotiate",
+      "output_encoding": "no-op",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
@@ -220,7 +220,7 @@
     {
       "endpoint": "/my/product/{productId}",
       "method": "PUT",
-      "output_encoding": "negotiate",
+      "output_encoding": "no-op",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
