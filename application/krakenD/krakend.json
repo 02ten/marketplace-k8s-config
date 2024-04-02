@@ -21,7 +21,12 @@
         {
           "url_pattern": "/api/auth/login",
           "host": ["http://auth.auth:8900"],
-          "encoding": "json"
+          "encoding": "json",
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "true"
+            }
+          }
         }
       ]
     },
@@ -36,7 +41,12 @@
           "method": "POST",
           "url_pattern": "/api/auth/register",
           "host": ["http://auth.auth:8900"],
-          "encoding": "string"
+          "encoding": "string",
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "true"
+            }
+          }
         }
       ]
     },
@@ -164,7 +174,12 @@
           "url_pattern": "/api/product/{JWT.id}/{productId}",
           "method": "DELETE",
           "host": ["http://seller-service.seller-service:8903"],
-          "encoding": "string"
+          "encoding": "string",
+          "extra_config": {
+            "backend/http": {
+              "return_error_details": "true"
+            }
+          }
         }
       ]
     },
