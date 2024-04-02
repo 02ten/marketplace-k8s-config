@@ -1,12 +1,12 @@
 CREATE DATABASE marketplace;
 \c marketplace;
-create table t_role
+create table role
 (
     id   bigserial
         primary key,
     vale varchar(255)
 );
-INSERT INTO t_role (id, vale) VALUES (1, 'USER'), (2, 'ADMIN'), (3, 'SELLER');
+INSERT INTO role (id, vale) VALUES (1, 'USER'), (2, 'ADMIN'), (3, 'SELLER');
 create table t_user
 (
     id         bigserial
