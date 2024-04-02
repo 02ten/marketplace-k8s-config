@@ -1,6 +1,6 @@
 CREATE DATABASE marketplace;
 \c marketplace;
-create table role
+create table t_role
 (
     id   bigserial
         primary key,
@@ -25,4 +25,22 @@ create table t_user_roles
         constraint fkbpogutbfkdk86cqbrh6k6b7dl
             references role,
     primary key (user_id, roles_id)
+);
+create table t_category
+(
+    id   bigserial
+        primary key,
+    name varchar(255)
+);
+create table t_product
+(
+    id          bigserial
+        primary key,
+    description varchar(255),
+    name        varchar(255),
+    price       double precision not null,
+    user_id     bigint,
+    category_id bigint
+        constraint fkp17nkwpqnnxh5iax87dc58sp3
+            references t_category
 );
