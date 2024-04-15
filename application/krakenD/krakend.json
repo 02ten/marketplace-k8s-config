@@ -30,7 +30,7 @@
         "*"
       ],
       "max_age": "12h",
-      "allow_credentials": true
+      "allow_credentials": true,
       "debug": false
     }
   },
