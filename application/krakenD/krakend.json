@@ -69,8 +69,36 @@
       "backend": [
         {
           "method": "POST",
-          "url_pattern": "/api/auth/register",
+          "url_pattern": "/api/auth/token",
           "host": ["http://auth.auth:8900"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/category",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "method": "POST",
+          "url_pattern": "/api/category",
+          "host": ["http://catalog.catalog:8901"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/product/category/{categoryId}",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "method": "POST",
+          "url_pattern": "/api/product/category/{categoryId}",
+          "host": ["http://catalog.catalog:8901"]
         }
       ]
     },
