@@ -39,6 +39,20 @@
       ]
     },
     {
+      "endpoint": "/api/auth/token",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "method": "POST",
+          "url_pattern": "/api/auth/register",
+          "host": ["http://auth.auth:8900"]
+        }
+      ]
+    },
+    {
       "endpoint": "/api/hello/user",
       "method": "GET",
       "output_encoding": "json",
