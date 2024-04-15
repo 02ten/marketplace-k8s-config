@@ -75,13 +75,13 @@
     },
     {
       "endpoint": "/api/category",
-      "method": "POST",
+      "method": "GET",
       "output_encoding": "no-op",
       "concurrent_calls": 1,
       "input_headers": ["*"],
       "backend": [
         {
-          "method": "POST",
+          "method": "GET",
           "url_pattern": "/api/category",
           "host": ["http://catalog.catalog:8901"]
         }
@@ -89,13 +89,13 @@
     },
     {
       "endpoint": "/api/product/category/{categoryId}",
-      "method": "POST",
+      "method": "GET",
       "output_encoding": "no-op",
       "concurrent_calls": 1,
       "input_headers": ["*"],
       "backend": [
         {
-          "method": "POST",
+          "method": "GET",
           "url_pattern": "/api/product/category/{categoryId}",
           "host": ["http://catalog.catalog:8901"]
         }
