@@ -32,28 +32,19 @@ create table t_category
         primary key,
     name varchar(255)
 );
+INSERT INTO t_category (id, name) VALUES (1, 'Семена'), (2, 'Свежие продукты'), (3, 'Мясо');
 create table t_product
 (
-    id          bigserial
+    id               bigserial
         primary key,
-    description varchar(255),
-    name        varchar(255),
-    price       double precision not null,
-    user_id     bigint,
-    category_id bigint
+    description      varchar(255),
+    name             varchar(255),
+    preview_image_id bigint,
+    price            double precision not null,
+    user_id          bigint,
+    category_id      bigint
         constraint fkp17nkwpqnnxh5iax87dc58sp3
             references t_category
-);
-create table t_order
-(
-    id            bigserial
-        primary key,
-    active        boolean          not null,
-    address       varchar(255),
-    creation_date timestamp(6),
-    payment       varchar(255),
-    summary       double precision not null,
-    user_id       bigint
 );
 create table t_cart
 (
@@ -64,19 +55,6 @@ create table t_cart
     product_id bigint
         constraint fk71g7tegrdc2b7aamcmmof637x
             references t_product
-);
-create table t_order_products
-(
-    id                bigserial
-        primary key,
-    quantity          bigint,
-    user_id           bigint,
-    product_id        bigint
-        constraint fkag13gits5n58hfq3cv07qyk81
-            references t_product,
-    order_products_id bigint
-        constraint fk6nne2jgo1jhov823i8tbt1a18
-            references t_order
 );
 create table t_images
 (
@@ -91,14 +69,27 @@ create table t_images
         constraint fk2ahxt5kdje6xp5suofqmg2tsu
             references t_product
 );
-create table t_product_images
+create table t_order
 (
-    product_id bigint not null
-        constraint fkos4qfdy8f40cp5bch2jxceyw4
+    id            bigserial
+        primary key,
+    active        boolean          not null,
+    address       varchar(255),
+    creation_date timestamp(6),
+    payment       varchar(255),
+    summary       double precision not null,
+    user_id       bigint
+);
+create table t_order_products
+(
+    id                bigserial
+        primary key,
+    quantity          bigint,
+    user_id           bigint,
+    product_id        bigint
+        constraint fkag13gits5n58hfq3cv07qyk81
             references t_product,
-    images_id  bigint not null
-        constraint uk_dw7hps4yi7vkr5q0ywek68dfv
-            unique
-        constraint fk30fedemxp63e2c3p62xjm8il9
-            references t_images
+    order_products_id bigint
+        constraint fk6nne2jgo1jhov823i8tbt1a18
+            references t_order
 );
