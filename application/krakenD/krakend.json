@@ -332,7 +332,7 @@
       ]
     },
     {
-      "endpoint": "/api/cart/{cartId}",
+      "endpoint": "/api/cart/{productId}",
       "input_query_strings": [
         "quantity"
       ],
@@ -353,7 +353,7 @@
       "input_headers": ["*"],
       "backend": [
         {
-          "url_pattern": "/api/cart/{JWT.id}/{cartId}/",
+          "url_pattern": "/api/cart/{JWT.id}/{productId}",
           "method": "POST",
           "host": ["http://catalog.catalog:8901"],
           "encoding": "string"
