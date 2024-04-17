@@ -60,7 +60,7 @@ create table t_images
 (
     id                 bigserial
         primary key,
-    bytes              bytea,
+    bytes              bigint,
     content_type       varchar(255),
     is_preview_image   boolean not null,
     original_file_name varchar(255),
