@@ -26,6 +26,8 @@ create table t_user_roles
             references role,
     primary key (user_id, roles_id)
 );
+INSERT INTO t_user(id, first_name, last_name, login, password) VALUES (1,'Александр','Тен','02ten@mail.ru','$2a$10$YYopbaIEYSDtCxBdzNCodOFJiDVw5GUerjPtSoPARxljIFGXpn0Ti')
+INSERT INTO t_user_roles(user_id, roles_id) VALUES(1,3);
 create table t_category
 (
     id   bigserial
@@ -78,7 +80,8 @@ create table t_order
     creation_date timestamp(6),
     payment       varchar(255),
     summary       double precision not null,
-    user_id       bigint
+    user_id       bigint,
+    telephone     varchar(255)
 );
 create table t_order_products
 (
