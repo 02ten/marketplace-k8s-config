@@ -178,9 +178,9 @@
       ]
     },
     {
-      "endpoint": "/my/product",
+      "endpoint": "/api/product",
       "method": "POST",
-      "output_encoding": "string",
+      "output_encoding": "no-op",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
@@ -204,7 +204,7 @@
       ]
     },
     {
-      "endpoint": "/my/product/{productId}",
+      "endpoint": "/api/product/{productId}",
       "method": "DELETE",
       "output_encoding": "no-op",
       "extra_config": {
@@ -229,9 +229,9 @@
       ]
     },
     {
-      "endpoint": "/my/product",
+      "endpoint": "/api/product",
       "method": "GET",
-      "output_encoding": "json",
+      "output_encoding": "no-op",
       "extra_config": {
         "auth/validator": {
           "alg": "HS512",
@@ -249,9 +249,7 @@
         {
           "url_pattern": "/api/product/{JWT.id}",
           "method": "GET",
-          "is_collection": true,
           "host": ["http://seller-service.seller-service:8903"],
-          "encoding": "json"
         }
       ]
     },
