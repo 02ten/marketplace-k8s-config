@@ -353,7 +353,7 @@
       "input_headers": ["*"],
       "backend": [
         {
-          "url_pattern": "/api/cart/{JWT.id}/{cartId}?quantity={quantity}",
+          "url_pattern": "/api/cart/{JWT.id}/{cartId}/",
           "method": "POST",
           "host": ["http://catalog.catalog:8901"],
           "encoding": "string"
