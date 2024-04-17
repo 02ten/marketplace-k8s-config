@@ -178,7 +178,7 @@
       ]
     },
     {
-      "endpoint": "/api/product",
+      "endpoint": "/api/seller/product",
       "method": "POST",
       "output_encoding": "no-op",
       "extra_config": {
@@ -196,7 +196,7 @@
       "input_headers": ["*"],
       "backend": [
         {
-          "url_pattern": "/api/product/{JWT.id}",
+          "url_pattern": "/api/seller/product/{JWT.id}",
           "method": "POST",
           "host": ["http://seller-service.seller-service:8903"],
           "encoding": "string"
@@ -204,7 +204,7 @@
       ]
     },
     {
-      "endpoint": "/api/product/{productId}",
+      "endpoint": "/api/seller/product/{productId}",
       "method": "DELETE",
       "output_encoding": "no-op",
       "extra_config": {
@@ -229,7 +229,7 @@
       ]
     },
     {
-      "endpoint": "/api/product",
+      "endpoint": "/api/seller/product",
       "method": "GET",
       "output_encoding": "no-op",
       "extra_config": {
@@ -247,9 +247,9 @@
       "input_headers": ["*"],
       "backend": [
         {
-          "url_pattern": "/api/product/{JWT.id}",
+          "url_pattern": "/api/seller/product/{JWT.id}",
           "method": "GET",
-          "host": ["http://seller-service.seller-service:8903"],
+          "host": ["http://seller-service.seller-service:8903"]
         }
       ]
     },
@@ -300,6 +300,141 @@
           "url_pattern": "/api/product/{JWT.id}/{productId}",
           "method": "PUT",
           "host": ["http://seller-service.seller-service:8903"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/image/{imageId}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "url_pattern": "/api/image/{imageId}",
+          "method": "GET",
+          "host": ["http://catalog.catalog:8901"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/product/image/{categoryId}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "url_pattern": "/api/product/image/{categoryId}",
+          "method": "GET",
+          "host": ["http://catalog.catalog:8901"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/cart/{cartId}",
+      "input_query_strings": [
+        "quantity"
+      ],
+      "method": "POST",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS512",
+          "jwk_local_path": "/etc/krakend/keys.json",
+          "disable_jwk_security": true,
+          "roles": ["USER"],
+          "roles_key": "roles",
+          "cache": false,
+          "operation_debug": true
+        }
+      },
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "url_pattern": "/api/cart/{JWT.id}/{cartId}?quantity={quantity}",
+          "method": "POST",
+          "host": ["http://catalog.catalog:8901"],
+          "encoding": "string"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/cart/",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS512",
+          "jwk_local_path": "/etc/krakend/keys.json",
+          "disable_jwk_security": true,
+          "roles": ["USER"],
+          "roles_key": "roles",
+          "cache": false,
+          "operation_debug": true
+        }
+      },
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "url_pattern": "/api/cart/{JWT.id}",
+          "method": "GET",
+          "host": ["http://catalog.catalog:8901"],
+          "encoding": "string"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/cart/{cartId}",
+      "method": "DELETE",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS512",
+          "jwk_local_path": "/etc/krakend/keys.json",
+          "disable_jwk_security": true,
+          "roles": ["USER"],
+          "roles_key": "roles",
+          "cache": false,
+          "operation_debug": true
+        }
+      },
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "url_pattern": "/api/cart/{cartId}",
+          "method": "DELETE",
+          "host": ["http://catalog.catalog:8901"],
+          "encoding": "string"
+        }
+      ]
+    },
+    {
+      "endpoint": "/api/order",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS512",
+          "jwk_local_path": "/etc/krakend/keys.json",
+          "disable_jwk_security": true,
+          "roles": ["USER"],
+          "roles_key": "roles",
+          "cache": false,
+          "operation_debug": true
+        }
+      },
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "url_pattern": "/api/order/{JWT.id}",
+          "method": "POST",
+          "host": ["http://catalog.catalog:8901"],
+          "encoding": "string"
         }
       ]
     }
