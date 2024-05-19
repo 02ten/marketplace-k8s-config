@@ -80,6 +80,7 @@ create table t_order
     creation_date timestamp(6),
     payment       varchar(255),
     summary       double precision not null,
+    status        varchar(255),
     user_id       bigint,
     telephone     varchar(255)
 );
