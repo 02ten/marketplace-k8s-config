@@ -15,7 +15,7 @@ spec:
         app: catalog
     spec:
       containers:
-        - image: 02ten/marketplace-catalog:0ea5267974b544ff109254fca07c9f44e99dc5ca
+        - image: 02ten/marketplace-catalog:50138c4e861a686696639c3c4dcc48b010650875
           imagePullPolicy: Always
           name: catalog
           resources:
