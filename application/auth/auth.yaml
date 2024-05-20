@@ -15,7 +15,7 @@ spec:
         app: auth
     spec:
       containers:
-        - image: 02ten/marketplace-auth:366d0c5c19aabed492697a7a393b6900e7b5c259
+        - image: 02ten/marketplace-auth:45e508e464d165008cb58121d02d9e0faadc9db5
           imagePullPolicy: Always
           name: auth
           resources:
