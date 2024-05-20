@@ -489,6 +489,32 @@
           "encoding": "string"
         }
       ]
+    },
+    {
+      "endpoint": "/api/admin/user/{id}",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS512",
+          "jwk_local_path": "/etc/krakend/keys.json",
+          "disable_jwk_security": true,
+          "roles": ["ADMIN"],
+          "roles_key": "roles",
+          "cache": false,
+          "operation_debug": true
+        }
+      },
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "url_pattern": "/api/admin/user/{id}",
+          "method": "GET",
+          "host": ["http://auth.auth:8900"],
+          "encoding": "string"
+        }
+      ]
     }
 
   ]
