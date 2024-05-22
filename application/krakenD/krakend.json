@@ -515,6 +515,32 @@
           "encoding": "string"
         }
       ]
+    },
+    {
+      "endpoint": "/api/admin/order/status",
+      "method": "PUT",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "HS512",
+          "jwk_local_path": "/etc/krakend/keys.json",
+          "disable_jwk_security": true,
+          "roles": ["ADMIN"],
+          "roles_key": "roles",
+          "cache": false,
+          "operation_debug": true
+        }
+      },
+      "concurrent_calls": 1,
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "url_pattern": "/api/order/status",
+          "method": "PUT",
+          "host": ["http://catalog.catalog:8901"],
+          "encoding": "string"
+        }
+      ]
     }
 
   ]
